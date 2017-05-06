@@ -20,7 +20,7 @@ $SetTemperature = "";
 Set Temperature:<br>
 <form action="set_temperature.php" method="POST">
     <p class="range-field">
-      <input type="range" name="SetTemperature" id="SetTemperature" min="50" max="90" value="<?php $Temperature=exec('/usr/bin/php /var/www/html/get_set_temperature.php'); echo $Temperature; ?>" step="0.05" />
+      <input type="range" name="SetTemperature" id="SetTemperature" min="50" max="90" value="<?php $Temperature=exec('php get_set_temperature.php'); echo $Temperature; ?>" step="0.05" />
       <input type="submit" value="submit">
     </p>
 </form>
