@@ -1,5 +1,6 @@
 <?php
-$XM2XKEY="-H X-M2X-KEY: 88dfa223d430beea460aa8915f8852be";
-$Get_Set_Temperature = exec('curl -i "http://api-m2x.att.com/v2/devices/716c9baf210d74b565099d167999b875/streams/Set_Temperature?pretty -H X-M2X-KEY:88dfa223d430beea460aa8915f8852be"');
-echo $Get_Set_Temperature;
+$Get_Set_Temperature = exec('/usr/bin/python /var/www/html/get_set_temperature.py');
+preg_match("/\"value\":\d\d.\d*/", $Get_Set_Temperature, $Get_Temperature);
+$Temperature = substr($Get_Temperature[0], 8);
+echo $Temperature;
 ?>
